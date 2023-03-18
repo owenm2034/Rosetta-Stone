@@ -10,6 +10,33 @@ internal class DotProduct
 
     public static decimal dotProduct(List<decimal> a, List<decimal> b)
     {
+        if (a.Count() != b.Count())
+        {
+            throw new DotProductError("a & b must have the same length.");
+        }
         return a.Zip(b, (x, y) => x * y).Sum();
+    }
+
+    public class DotProductError : Exception
+    {
+        string? What { get; set; }
+
+        public DotProductError(string what)
+        {
+            if (what == null)
+            {
+                What = "not-specified";
+            }
+            else
+            {
+                What = what;
+
+            }
+        }
+
+        public string GetWhat()
+        {
+            return What;
+        }
     }
 }

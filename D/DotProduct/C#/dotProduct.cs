@@ -34,9 +34,6 @@ internal class DotProduct
             }
         }
 
-        public string GetWhat()
-        {
-            return What;
-        }
+        public string GetWhat() => What;
     }
 }
